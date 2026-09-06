@@ -1,0 +1,157 @@
+{
+    "url": "file:///home/test/sih-server-ai/test_data/website/index.html",
+    "title": "TechMart - Laptop Store",
+
+    "viewport": {
+        "width": 1904,
+        "height": 948,
+        "dpr": 1
+    },
+
+    "scroll": {
+        "x": 0,
+        "y": 0
+    },
+
+    "elements": [
+
+        {
+            "id": "search",
+            "type": "textbox",
+            "label": "Search products",
+            "placeholder": "Search laptops, phones, accessories...",
+            "bbox": {
+                "x": 310,
+                "y": 18,
+                "width": 500,
+                "height": 42
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "search-button",
+            "type": "button",
+            "label": "Search",
+            "bbox": {
+                "x": 810,
+                "y": 18,
+                "width": 110,
+                "height": 42
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "cart",
+            "type": "button",
+            "label": "Shopping cart",
+            "bbox": {
+                "x": 1650,
+                "y": 18,
+                "width": 110,
+                "height": 42
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "product-asus-tuf",
+            "type": "button",
+            "label": "Buy ASUS TUF Gaming A15",
+            "text": "Add to Cart",
+            "bbox": {
+                "x": 115,
+                "y": 390,
+                "width": 330,
+                "height": 45
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "product-legion",
+            "type": "button",
+            "label": "Buy Lenovo Legion 5",
+            "text": "Add to Cart",
+            "bbox": {
+                "x": 500,
+                "y": 390,
+                "width": 330,
+                "height": 45
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "product-victus",
+            "type": "button",
+            "label": "Buy HP Victus 15",
+            "text": "Add to Cart",
+            "bbox": {
+                "x": 885,
+                "y": 390,
+                "width": 330,
+                "height": 45
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        },
+
+        {
+            "id": "email",
+            "type": "textbox",
+            "label": "Email",
+            "bbox": {
+                "x": 25,
+                "y": 690,
+                "width": 350,
+                "height": 40
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": true
+        },
+
+        {
+            "id": "password",
+            "type": "textbox",
+            "label": "Password",
+            "bbox": {
+                "x": 25,
+                "y": 755,
+                "width": 350,
+                "height": 40
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": true
+        },
+
+        {
+            "id": "login",
+            "type": "button",
+            "label": "Login",
+            "bbox": {
+                "x": 25,
+                "y": 810,
+                "width": 100,
+                "height": 42
+            },
+            "visible": true,
+            "interactive": true,
+            "sensitive": false
+        }
+    ]
+}

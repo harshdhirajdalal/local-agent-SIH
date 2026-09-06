@@ -1,0 +1,67 @@
+{
+    "source": "dummy_omniparser",
+
+    "image": {
+        "width": 1904,
+        "height": 948
+    },
+
+    "elements": [
+
+        {
+            "id": "search",
+            "type": "textbox",
+            "bbox": [310, 18, 810, 60],
+            "confidence": 0.99,
+            "text": "Search laptops, phones, accessories..."
+        },
+
+        {
+            "id": "search-button",
+            "type": "button",
+            "bbox": [810, 18, 920, 60],
+            "confidence": 0.98,
+            "text": "Search"
+        },
+
+        {
+            "id": "cart",
+            "type": "button",
+            "bbox": [1650, 18, 1760, 60],
+            "confidence": 0.97,
+            "text": "Cart"
+        },
+
+        {
+            "id": "product-asus-tuf",
+            "type": "button",
+            "bbox": [115, 390, 445, 435],
+            "confidence": 0.96,
+            "text": "Add to Cart"
+        },
+
+        {
+            "id": "product-legion",
+            "type": "button",
+            "bbox": [500, 390, 830, 435],
+            "confidence": 0.95,
+            "text": "Add to Cart"
+        },
+
+        {
+            "id": "product-victus",
+            "type": "button",
+            "bbox": [885, 390, 1215, 435],
+            "confidence": 0.96,
+            "text": "Add to Cart"
+        },
+
+        {
+            "id": "login",
+            "type": "button",
+            "bbox": [25, 810, 125, 852],
+            "confidence": 0.97,
+            "text": "Login"
+        }
+    ]
+}
