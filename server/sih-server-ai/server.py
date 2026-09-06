@@ -29,9 +29,7 @@ sessions = SessionManager()
 ollama_semaphore = threading.BoundedSemaphore(OLLAMA_MAX_CONCURRENT)
 
 
-async def build_initial_context(session: BrowserSession) -> dict[str, Any]:
-    """Build compact model context from the current live browser state."""
-
+async def build_initial_context(session):
     try:
         page_info = session.registry.execute(
             "get_page_info",
@@ -43,9 +41,19 @@ async def build_initial_context(session: BrowserSession) -> dict[str, Any]:
             {},
         )
 
+        visual_context = session.registry.execute(
+            "get_visual_context",
+            {},
+        )
+
         return {
             "page": page_info,
             "interactive_elements": interactive_elements,
+            "visual": {
+                "source": visual_context.get("source"),
+                "elements": visual_context.get("elements", []),
+                "privacy": visual_context.get("privacy", {}),
+            },
         }
 
     except Exception as error:
@@ -84,8 +92,12 @@ async def run_session_agent(session: BrowserSession) -> None:
         except Exception:
             pass
         return
-
     initial_context = await build_initial_context(session)
+
+    screenshot = initial_context.pop(
+        "screenshot",
+        None,
+    )
 
     session.messages = [
         {
@@ -98,6 +110,7 @@ async def run_session_agent(session: BrowserSession) -> None:
                 "CURRENT BROWSER STATE:\n"
                 + str(initial_context)
             ),
+            "screenshot": screenshot,
         },
         {
             "role": "user",

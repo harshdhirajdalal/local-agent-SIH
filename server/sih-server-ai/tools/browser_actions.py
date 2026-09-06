@@ -51,6 +51,7 @@ def _validate_fake_element(element_id, allow_sensitive=False):
 def click(element_id, session=None):
     """Click a browser element by DOM ID."""
 
+    
     if session is not None:
         return session.send_command_sync(
             "click",

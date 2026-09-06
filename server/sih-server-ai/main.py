@@ -133,19 +133,36 @@ def build_initial_context():
 
 def call_qwen(messages, tools):
     """
-    Send the current conversation and tools to Ollama.
+    Send the current conversation, tools, and optional
+    screenshots to Ollama.
 
-    Returns:
-        Ollama assistant message
+    Ollama accepts images through the "images" field
+    inside a message.
     """
 
     start_time = time.perf_counter()
+
+    # Copy messages so we don't modify the controller's
+    # original conversation history.
+    ollama_messages = []
+
+    for message in messages:
+        message_copy = dict(message)
+
+        # "screenshot" is our internal field.
+        # Ollama does not expect this field.
+        screenshot = message_copy.pop("screenshot", None)
+
+        if screenshot:
+            message_copy["images"] = [screenshot]
+
+        ollama_messages.append(message_copy)
 
     response = requests.post(
         OLLAMA_URL,
         json={
             "model": MODEL,
-            "messages": messages,
+            "messages": ollama_messages,
             "tools": tools,
             "stream": False,
             "think": False,
@@ -166,13 +183,11 @@ def call_qwen(messages, tools):
             "Ollama response did not contain a message."
         )
 
-    # Store timing information internally.
     message["_timing"] = {
         "model_wall_time_seconds": elapsed,
     }
 
     return message
-
 
 # ============================================================
 # Agent execution

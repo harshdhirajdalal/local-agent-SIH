@@ -230,7 +230,7 @@ def get_element(element_id, session=None):
 
 
 def get_visual_context(session=None):
-    """Return current visual-perception results."""
+    """Return sanitized visual-perception results."""
 
     visual = load_visual(session)
 
@@ -238,6 +238,8 @@ def get_visual_context(session=None):
         "source": visual.get("source"),
         "image": visual.get("image"),
         "elements": visual.get("elements", []),
+        "screenshot": visual.get("screenshot"),
+        "privacy": visual.get("privacy", {}),
     }
 
 
